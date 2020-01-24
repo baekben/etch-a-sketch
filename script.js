@@ -1,3 +1,4 @@
+//global variable
 const grid = document.getElementById('grid');
 
 function createGrid(rows, cols) {
@@ -5,7 +6,7 @@ function createGrid(rows, cols) {
   grid.style.setProperty('--grid-cols', cols);
   for (let i = 0; i < rows * cols; i++) {
     let cell = document.createElement('div');
-    cell.innerText = i + 1; //number each cell
+    //cell.innerText = i + 1; //number each cell
     grid.appendChild(cell).className = 'cell';
   }
 }
