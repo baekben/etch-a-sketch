@@ -2,6 +2,7 @@
 const grid = document.getElementById('grid');
 const cell = document.getElementsByClassName('cell');
 const container = document.getElementById('container');
+const reset = document.getElementById('reset');
 
 createGrid(16, 16);
 
@@ -14,9 +15,17 @@ function createGrid(rows, cols) {
     grid.appendChild(cell).className = 'cell';
   }
 }
-//event listener with event mousemove to change background
+
+//drawing
 container.addEventListener('mouseover', e => {
   if (e.target.className === 'cell') {
     e.target.style.backgroundColor = 'black';
   }
 });
+
+function newBoard() {
+  const clear = document.querySelectorAll('#container div');
+  clear.forEach(cell => {
+    cell.style.backgroundColor = 'white';
+  });
+}
