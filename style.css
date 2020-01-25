@@ -12,7 +12,7 @@
 }
 #grid {
   display: grid;
-  grid-template: repeat(16, 1fr) / repeat(16, 1fr);
+  grid-template: repeat(var(--grid-rows), 1fr) / repeat(var(--grid-cols), 1fr);
 }
 
 .cell {

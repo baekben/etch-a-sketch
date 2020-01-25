@@ -4,8 +4,6 @@ const cell = document.getElementsByClassName('cell');
 const container = document.getElementById('container');
 const reset = document.getElementById('reset');
 
-createGrid(16, 16);
-
 function createGrid(rows, cols) {
   grid.style.setProperty('--grid-rows', rows);
   grid.style.setProperty('--grid-cols', cols);
@@ -23,9 +21,23 @@ container.addEventListener('mouseover', e => {
   }
 });
 
+function gameStart() {
+  createGrid(16, 16);
+}
+
 function newBoard() {
-  const clear = document.querySelectorAll('#container div');
-  clear.forEach(cell => {
-    cell.style.backgroundColor = 'white';
-  });
+  var play = window.prompt('Would you like to change the board size?');
+  if (play.charAt(0) == ('y' || 'Y')) {
+    var size = window.prompt('What new size would you like?');
+    grid.innerHTML = '';
+    createGrid(size, size);
+  } else if (play.charAt(0) == ('n' || 'N')) {
+    const clear = document.querySelectorAll('#container div');
+    clear.forEach(cell => {
+      cell.style.backgroundColor = 'white';
+    });
+  } else {
+    alert("Sorry. I didn't get that");
+    play;
+  }
 }
