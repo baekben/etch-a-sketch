@@ -1,5 +1,9 @@
 //global variable
 const grid = document.getElementById('grid');
+const cell = document.getElementsByClassName('cell');
+const container = document.getElementById('container');
+
+createGrid(16, 16);
 
 function createGrid(rows, cols) {
   grid.style.setProperty('--grid-rows', rows);
@@ -10,5 +14,9 @@ function createGrid(rows, cols) {
     grid.appendChild(cell).className = 'cell';
   }
 }
-
-createGrid(16, 16);
+//event listener with event mousemove to change background
+container.addEventListener('mouseover', e => {
+  if (e.target.className === 'cell') {
+    e.target.style.backgroundColor = 'black';
+  }
+});
