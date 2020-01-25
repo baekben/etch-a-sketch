@@ -2,6 +2,9 @@
   --grid-cols: 1;
   --grid-rows: 1;
 }
+.top {
+  text-align: center;
+}
 #container {
   width: 30%;
   padding: 2em 2em 2em 2em;
@@ -13,6 +16,15 @@
 #grid {
   display: grid;
   grid-template: repeat(var(--grid-rows), 1fr) / repeat(var(--grid-cols), 1fr);
+}
+.buttons {
+  text-align: center;
+}
+#reset {
+  font-size: 18px;
+  padding: 5px 5px;
+  background-color: #eba834;
+  border-radius: 4px;
 }
 
 .cell {
