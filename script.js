@@ -15,11 +15,19 @@ function createGrid(rows, cols) {
 }
 
 //drawing
-container.addEventListener('mouseover', e => {
-  if (e.target.className === 'cell') {
-    e.target.style.backgroundColor = 'black';
-  }
-});
+function color(option) {
+  container.addEventListener('mouseover', e => {
+    if (e.target.className === 'cell' && option == null) {
+      e.target.style.backgroundColor = 'black';
+    } else if (e.target.className === 'cell' && option == 'random') {
+      e.target.style.backgroundColor =
+        'rgb(' + randColor() + ',' + randColor() + ',' + randColor() + ')';
+    }
+  });
+}
+function randColor() {
+  return Math.floor(Math.random() * 256);
+}
 
 function gameStart() {
   createGrid(16, 16);
@@ -36,6 +44,7 @@ function newBoard() {
     clear.forEach(cell => {
       cell.style.backgroundColor = 'white';
     });
+    gameStart();
   } else {
     alert("Sorry. I didn't get that");
     play;

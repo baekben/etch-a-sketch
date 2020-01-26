@@ -5,14 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Bangers&display=swap"
+      rel="stylesheet"
+    />
     <title>Browser Etch</title>
   </head>
-  <body onload="gameStart()">
+  <body onload="gameStart();color();">
     <div class="top">
       <h1 id="title">Etch-A-Sketch</h1>
     </div>
     <div class="buttons">
       <button id="reset" onclick="newBoard()">Reset</button>
+      <button id="random" onclick="color('random');">
+        Random
+      </button>
     </div>
 
     <div id="container">
