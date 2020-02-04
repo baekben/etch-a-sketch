@@ -34,19 +34,12 @@ function gameStart() {
 }
 
 function newBoard() {
-  var play = window.prompt('Would you like to change the board size?');
-  if (play.charAt(0) == ('y' || 'Y')) {
-    var size = window.prompt('What new size would you like?');
-    grid.innerHTML = '';
-    createGrid(size, size);
-  } else if (play.charAt(0) == ('n' || 'N')) {
-    const clear = document.querySelectorAll('#container div');
-    clear.forEach(cell => {
-      cell.style.backgroundColor = 'white';
-    });
-    gameStart();
-  } else {
-    alert("Sorry. I didn't get that");
-    play;
+  while (grid.firstChild) {
+    grid.removeChild(grid.firstChild);
   }
+  var play = window.prompt('How big would you like the grid? (1-100)');
+  while (play < 1 || play > 100) {
+    play = window.prompt('How big would you like the grid? (1-100)');
+  }
+  createGrid(play, play);
 }
